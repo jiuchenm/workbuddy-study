@@ -27,10 +27,10 @@ doc.feed(text)
 assert len(doc.ids) == len(set(doc.ids)), 'Duplicate element IDs'
 assert all(h[1:] in doc.ids for h in doc.hrefs if h.startswith('#')), 'Broken section link'
 assert not doc.scripts, 'Unexpected external script'
-assert len(records) == 36
+assert len(records) == 67
 assert all(r['id'] in doc.ids for r in records)
 assert all('local_path' not in r for r in records)
-assert 'WorkBuddy 运行机制分析报告' in text
+assert 'WorkBuddy 工程剖析' in text
 assert 'file://' not in text.lower()
 assert not re.search(r'[A-Za-z]:[\\/](?:Users|Program Files)', text, re.I), 'Machine path in HTML'
 assert not re.search(r'gh[pousr]_[A-Za-z0-9]{20,}|github_pat_[A-Za-z0-9_]{20,}', text)
